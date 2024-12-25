@@ -10,7 +10,7 @@ if (window.innerWidth <= 450) {
   document.querySelector(".divider").src = "images/pattern-divider-desktop.svg";
 }
 
-btn.addEventListener("click", function () {
+let fetchAdvice = () => {
   fetch("https://api.adviceslip.com/advice")
     .then((res) => {
       if (!res.ok) {
@@ -25,4 +25,8 @@ btn.addEventListener("click", function () {
     .catch((err) => {
       console.error(err);
     });
-});
+};
+
+fetchAdvice();
+
+btn.addEventListener("click", fetchAdvice);
